@@ -1,0 +1,17 @@
+[user]
+	email = alex@alexslomka.xyz
+	name = qiu-x
+[core]
+	editor = vise
+[color]
+	ui = always
+	status=always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master

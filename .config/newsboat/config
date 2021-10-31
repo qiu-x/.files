@@ -1,0 +1,56 @@
+#show-read-feeds no
+
+use-proxy no
+proxy-type socks5
+proxy 127.0.0.1:9050
+
+text-width 90
+
+auto-reload yes
+reload-threads 5
+
+#external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+
+browser w3m
+macro , open-in-browser
+macro t set browser "nohup firefox %u >/dev/null 2>&1 &" ; open-in-browser ; set browser torsocks w3m
+macro a set browser "nohup torsocks mpv --no-video %u >/dev/null 2>&1 &" ; open-in-browser ; set browser torsocks w3m
+macro v set browser "nohup torsocks mpv --fullscreen --ytdl-format='\bestvideo[height<=?720]+bestaudio/best\' %u >/dev/null 2>&1 &" ; open-in-browser ; set browser w3m
+macro V set browser "mpv --fullscreen" ; open-in-browser ; set browser w3m
+macro f set browser "nohup mpv --ytdl-format=\"bestvideo[height<=?1080][fps<=?30][vcodec!=?vp9]+bestaudio/best\" %u >/dev/null 2>&1&"; open-in-browser ; set browser torsocks w3m
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+bind-key ^t next-unread
+
+highlight all "---.*---" green
+highlight feedlist ".*(0/0))" black
+color listnormal cyan default
+color listfocus black green standout bold
+color listnormal_unread yellow default
+color listfocus_unread yellow default bold
+color info green black bold
+color article white default
+highlight article "https?://[^ ]+" cyan default
+highlight article "^(Title):.*$" green default
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+
+# ignore-article "*" "title =~ \"Probl\""
+# ignore-mode display
+# save-path "/tmp/path_1"
