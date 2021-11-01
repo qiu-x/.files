@@ -50,8 +50,8 @@ export XKB_DEFAULT_OPTIONS="caps:escape"
 PS1="[0;97m[[1;96m$(hostname)[0;37m:[0;94m\${PWD##*/}/[0;37m]$(if (( $(id -u) )); then print '\$[0;39m'; else print '[1;31m#'; fi) "
 
 # Aliases
-alias ls='ls --color -h'
-alias ll='ls --color -h -la'
+alias ls='exa --color always -h'
+alias ll='exa --color always -h -la'
 alias mpvm='mpv --force-window=no --no-vid'
 alias cdf='cd "$(find . -type d | fzf -e +s)"'
 alias ..='cd ..'
@@ -73,6 +73,8 @@ h() { fc -n -l 0 | fzf | sh ; }
 
 ## oksh command completions
 [ -f ~/.oksh_completions ] && . ~/.oksh_completions
+
+eval "$(zoxide init posix --hook prompt)"
 
 # Security is important
 umask 077

@@ -1,6 +1,5 @@
 -- Plugins
 require('vis') -- Load standard vis module, providing parts of the Lua API
-require('plugins/title') -- Change terminal title to file path
 require('plugins/cursors') -- Save cursor location on exit
 require('plugins/vis-commentary') -- Bindings to comment out lines in different langs
 require('plugins/fzf-open') -- Open file using fzf
