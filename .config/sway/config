@@ -34,16 +34,18 @@ set $term st
 set $menu /home/qiu/.local/bin/bemenu_run_i.sh
 
 # output * bg /home/qiu/.config/sway/wallpaper.png fill
-output * bg "#282828" solid_color
 # output * bg "#3c3836" solid_color
+output * bg "#282828" solid_color
 
-input "*" {
+input type:keyboard {
 	xkb_layout pl
 	xkb_options caps:escape
 	tap enabled
 	repeat_delay 300
 	repeat_rate 60
 }
+
+input "type:pointer" pointer_accel 0.7
 
 #
 # Key Bindings
