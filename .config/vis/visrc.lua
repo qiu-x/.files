@@ -9,6 +9,7 @@ require('plugins/fzf-grep') -- fzf - grep current dir
 require('plugins/surround') -- Like vim-surround
 require('plugins/goto-file') -- gf command support
 require('plugins/sneak') -- Like vim-sneak
+require('plugins/vis-spellcheck') -- Spellcheck
 
 -- My custom settings
 dofile('/home/qiu/.config/vis/cfg/perfile.lua') -- Per file stuff

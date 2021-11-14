@@ -194,7 +194,7 @@ bar {
 
 	# When the status_command prints a new line to stdout, swaybar updates.
 	# The default just shows the current date and time.
-	status_command while true; do echo "[$(uptime | cut -d ' ' -f4-6 | sed s/,//)] [$(date '+%Y-%m-%d %l:%M:%S %p')]"; sleep 1; done
+	status_command while true; do echo "[$(uptime | grep -o -E 'up *[0-9]*\:[0-9]*')] [$(date '+%Y-%m-%d %l:%M:%S %p')]"; sleep 1; done
 
 	colors {
 		background $base00
@@ -231,7 +231,11 @@ font pango:Terminus (TTF) 12
 # Hide the cursor
 seat * hide_cursor 2000
 
+# Launch dbus
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
+
+# Fix clipboard behavior
+exec wl-paste -t text --watch clipman store --no-persist
 
 # Security
 include ~/.config/sway/securitu.d/*

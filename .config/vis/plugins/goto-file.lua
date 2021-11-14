@@ -323,7 +323,7 @@ end, h"Same as :split, but search in 'path'")
 vis:map(vis.modes.NORMAL, "<C-w>f", "<C-w><C-f>")
 vis:map(vis.modes.VISUAL, "<C-w>f", "<C-w><C-f>")
 
-vis:map(vis.modes.NORMAL, "<C-o>", function()
+vis:map(vis.modes.NORMAL, "<C-l>", function()
 	if #locations < 1 then
 		return
 	end
@@ -345,5 +345,13 @@ function vis_goto_file(syntax, handler)
 		external_match[syntax] = handler
 	end
 end
+
+vis.events.subscribe(vis.events.FILE_OPEN, function(file, path)
+	vis:redraw()
+	if vis.win ~= nil then
+		vis.win:draw()
+	end
+	return true
+end)
 
 return M

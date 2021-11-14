@@ -55,6 +55,7 @@ alias ll='exa --color always -h -la'
 alias mpvm='mpv --force-window=no --no-vid'
 alias cdf='cd "$(find . -type d | fzf -e +s)"'
 alias ..='cd ..'
+alias cd='z'
 
 if test -z "${XDG_RUNTIME_DIR}"; then
   export XDG_RUNTIME_DIR=/tmp/$(id -u)-runtime-dir

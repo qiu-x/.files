@@ -15,9 +15,10 @@ browser w3m
 macro , open-in-browser
 macro t set browser "nohup firefox %u >/dev/null 2>&1 &" ; open-in-browser ; set browser torsocks w3m
 macro a set browser "nohup torsocks mpv --no-video %u >/dev/null 2>&1 &" ; open-in-browser ; set browser torsocks w3m
-macro v set browser "nohup torsocks mpv --fullscreen --ytdl-format='\bestvideo[height<=?720]+bestaudio/best\' %u >/dev/null 2>&1 &" ; open-in-browser ; set browser w3m
+macro p set browser "mpv --no-video --force-window=no %u" ; open-in-browser ; set browser torsocks w3m
+macro v set browser "nohup torsocks mpv --fullscreen --ytdl-format='\bestvideo[height<=?720]+bestaudio/best\' --script-opts=ytdl_hook-ytdl_path=yt-dlp %u >/dev/null 2>&1 &" ; open-in-browser ; set browser w3m
 macro V set browser "mpv --fullscreen" ; open-in-browser ; set browser w3m
-macro f set browser "nohup mpv --ytdl-format=\"bestvideo[height<=?1080][fps<=?30][vcodec!=?vp9]+bestaudio/best\" %u >/dev/null 2>&1&"; open-in-browser ; set browser torsocks w3m
+macro f set browser "nohup mpv --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format=\"bestvideo[height<=?1080]+bestaudio/best\" %u >/dev/null 2>&1&"; open-in-browser ; set browser torsocks w3m
 
 bind-key j down
 bind-key k up

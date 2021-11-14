@@ -140,7 +140,7 @@ local function visual_f(i)
 
             win:draw()
             win.selection:to(lnum, col)     -- restore cursor position
-            vis.mode = vis.modes.NORMAL     -- go to normal mode
+            vis.mode = 0                    -- go to normal mode
         end
     end
 end
