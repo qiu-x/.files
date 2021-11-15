@@ -196,7 +196,7 @@ bar {
 
 	# When the status_command prints a new line to stdout, swaybar updates.
 	# The default just shows the current date and time.
-	status_command while true; do echo "[$(uptime | grep -o -E 'up *[0-9]*\:[0-9]*')] [$(date '+%Y-%m-%d %l:%M:%S %p')]"; sleep 1; done
+	status_command while true; do echo "[$(uptime | grep -o -E 'up *([0-9]|\:)*')] [$(date '+%Y-%m-%d %l:%M:%S %p')]"; sleep 1; done
 
 	colors {
 		background $base00
