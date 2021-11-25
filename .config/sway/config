@@ -53,6 +53,9 @@ input "type:pointer" pointer_accel 0.7
 	# Start a terminal
 	bindsym $mod+Return exec $term
 
+	# Start a terminal in CWD
+	bindsym $mod+Shift+Return exec 'cd "$(swaycwd)" && st'
+
 	# Kill focused window
 	bindsym $mod+q kill
 
@@ -237,7 +240,7 @@ seat * hide_cursor 2000
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 
 # Fix clipboard behavior
-exec wl-paste -t text --watch clipman store --no-persist
+# exec wl-paste -t text --watch clipman store --no-persist
 
 # Security
 include ~/.config/sway/securitu.d/*
