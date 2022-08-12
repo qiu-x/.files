@@ -6,8 +6,10 @@ proxy 127.0.0.1:9050
 
 text-width 90
 
+confirm-mark-feed-read no
+
 auto-reload yes
-reload-threads 5
+reload-threads 20
 
 #external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 

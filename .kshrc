@@ -18,13 +18,13 @@ export EDITOR=vise
 export VISUAL=vise
 export BROWSER=w3m
 export XDG_CONFIG_HOME=$HOME/.config
-export HISTSIZE=3000
+export HISTSIZE=20000
 export HISTFILE=~/.cache/oksh_history
-export PATH=$PATH:$HOME/.local/bin:$HOME/.local/share/android/cmdline-tools/bin:$HOME/.local/share/android/cmdline-tools/build-tools/29.0.3:$HOME/.cargo/bin:$HOME/.local/share/go/bin
-export GOROOT=/usr/local/go
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/share/android/cmdline-tools/bin:$HOME/.local/share/android/cmdline-tools/build-tools/29.0.3:$HOME/.cargo/bin:$HOME/.local/share/go/bin:/opt/steam-utils/bin:/opt/steam-utils/lxbin
+export GOROOT=/usr/local/go119
 export MOZ_ENABLE_WAYLAND=1
 export TEXFM=/home/$HOME/.local/share/texmf
-export QT_STYLE_OVERRIDE=adwaita-dark
+export QT_STYLE_OVERRIDE=adwaita
 export WEECHAT_HOME=$XDG_CONFIG_HOME/weechat
 export GEM_HOME=$XDG_DATA_HOME/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem
@@ -32,7 +32,7 @@ export GOPATH=$XDG_DATA_HOME/go
 export ANDROID_SDK_ROOT=/home/$HOME/.local/share/android/cmdline-tools
 export ANDROID_HOME=/home/$HOME/.local/share/android/cmdline-tools
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
-export LESS=-R
+export LESS="-R -i --use-color"
 export LESSHISTFILE="-"
 export LC_ALL=en_US.UTF-8
 export TERM=xterm-256color
@@ -43,11 +43,14 @@ export CGO_CFLAGS="-I /usr/local/include"
 export FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '70%'"
 export FZF_DEFAULT_COMMAND='find .'
 #export WLR_RENDERER=vulkan
+export AUDIOPLAYDEVICE=rsnd/0
+export AUDIORECDEVICE=rsnd/4
+export QT_QPA_PLATFORM=xcb
 
 export XKB_DEFAULT_LAYOUT="pl"
 export XKB_DEFAULT_OPTIONS="caps:escape"
 
-PS1="[0;97m[[1;96m$(hostname)[0;37m:[0;94m\${PWD##*/}/[0;37m]$(if (( $(id -u) )); then print '\$[0;39m'; else print '[1;31m#'; fi) "
+PS1="[0;97m[[1;96m$(hostname)[0;37m:[0;94m\${PWD##*/}/[0;37m]$(if (( $(id -u) )); then print '\$[0;39m'; else print '[1;31m#'; fi) $(echo ']0;$PWD')"
 
 # Aliases
 alias ls='exa --color always -h'

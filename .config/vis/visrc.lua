@@ -10,6 +10,7 @@ require('plugins/surround') -- Like vim-surround
 require('plugins/goto-file') -- gf command support
 require('plugins/sneak') -- Like vim-sneak
 require('plugins/vis-spellcheck') -- Spellcheck
+require('plugins/title') -- Spellcheck
 
 -- My custom settings
 dofile('/home/qiu/.config/vis/cfg/perfile.lua') -- Per file stuff

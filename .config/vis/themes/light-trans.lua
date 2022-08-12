@@ -1,16 +1,16 @@
 local lexers = vis.lexers
 
 local colors = {
-	['foreground']       = 'white',
+	['foreground']       = '#000000',
 	['background']       = '#EDEDED',
 
 	['red']              = '#df0000', -- Include/Exception
 	['green']            = '#00aa00', -- Boolean/Special
-	['blue']             = '#4271ae', -- Keyword
+	['blue']             = '#4271ff', -- Keyword
 
 	['pink']             = '#d7005f', -- Type
 	['olive']            = '#718c00', -- String
-	['lightgreen']       = '#55ff55', -- StorageClass
+	['lightgreen']       = '#55aa55', -- StorageClass
 
 	['orange']           = '#d75f00', -- Number
 	['purple']           = '#8959a8', -- Repeat/Conditional
@@ -18,15 +18,15 @@ local colors = {
 
 	['magenta']          = '#d33682',
 	['violet']           = '#6c71c4',
-	['cyan']             = '#2aa198',
+	['cyan']             = '#2aff98',
 
 	['selection']        = '#bcbcbc',
 	['base02']           = '#073642',
 	['comment']          = '#878787',
 
-	['cursorline']       = '#111122',
-	['cursorbackground'] = 'white',
-	['cursorforeground'] = 'black',
+	['cursorline']       = '#d3d7cf',
+	['cursorbackground'] = 'black',
+	['cursorforeground'] = 'white',
 }
 
 lexers.colors = colors
@@ -35,8 +35,7 @@ local fg = 'fore:'..colors.foreground
 local bg = 'back:'..colors.background
 
 -- use background color of terminal instead of defining it here
-lexers.STYLE_DEFAULT        = fg
--- lexers.STYLE_DEFAULT        = fg..','..bg
+lexers.STYLE_DEFAULT        = ''
 lexers.STYLE_NOTHING        = ''
 lexers.STYLE_CLASS          = 'fore:'..colors.lightgreen
 lexers.STYLE_COMMENT        = 'fore:'..colors.comment
@@ -56,15 +55,14 @@ lexers.STYLE_TYPE           = 'fore:'..colors.pink..',normal'
 lexers.STYLE_VARIABLE       = 'fore:'..colors.blue
 lexers.STYLE_WHITESPACE     = ''
 lexers.STYLE_EMBEDDED       = 'fore:'..colors.blue
-lexers.STYLE_IDENTIFIER     = fg
+lexers.STYLE_IDENTIFIER     = ''
 
--- lexers.STYLE_LINENUMBER     = 'fore:'..colors.selection, 'back:'..colors.cursorline
-lexers.STYLE_LINENUMBER_CURSOR = 'fore:white'
 lexers.STYLE_CURSOR         = 'fore:'..colors.cursorforeground..',back:'..colors.cursorbackground
 lexers.STYLE_CURSOR_PRIMARY = lexers.STYLE_CURSOR..',back:'..colors.magenta
-lexers.STYLE_CURSOR_LINE    = 'back:'..colors.cursorline
+lexers.STYLE_CURSOR_LINE    = ''
 lexers.STYLE_COLOR_COLUMN   = 'back:'..colors.cursorline
 lexers.STYLE_SELECTION      = 'back:'..colors.selection
+lexers.STYLE_CURSOR_LINE    = 'back:'..colors.cursorline
 lexers.STYLE_STATUS         = 'reverse'
 lexers.STYLE_STATUS_FOCUSED = 'reverse,bold'
 lexers.STYLE_SEPARATOR      = lexers.STYLE_DEFAULT

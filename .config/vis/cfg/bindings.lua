@@ -1,11 +1,5 @@
 local module = {}
 
--- Enter shell with Space+w
-vis:map(vis.modes.NORMAL, " w", function()
-		vis:command(":!cd ${vis_filepath%/*};" .. term .. " > /dev/null 2> /dev/null&")
-		vis:feedkeys("<vis-redraw>")
-end, "Open terminal")
-
 -- Completion with Ctrl+Space
 vis:map(vis.modes.INSERT, "<C- >", "<C-n>")
 

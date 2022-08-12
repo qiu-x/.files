@@ -20,6 +20,7 @@ set $base0C #963E4C
 set $base0D #96883E
 set $base0E #4C963E
 set $base0F #3E965B
+set $alpha #00000000
 
 set $mod Mod4
 
@@ -33,9 +34,9 @@ set $term st
 # set $menu dmenu_path | bemenu -p "exec:" -fn "Terminus (TTF) [14]" | xargs swaymsg exec --
 set $menu /home/qiu/.local/bin/bemenu_run_i.sh
 
-# output * bg /home/qiu/.config/sway/wallpaper.png fill
+output * bg /home/qiu/.config/sway/wallpaper_space.png fill
 # output * bg "#3c3836" solid_color
-output * bg "#282828" solid_color
+# output * bg "#282828" solid_color
 
 input type:keyboard {
 	xkb_layout pl
@@ -66,7 +67,7 @@ input "type:pointer" pointer_accel 0.7
 	bindsym $mod+c exec ~/.local/bin/plumber-wayland.sh
 
 	# Screen shot
-	bindsym $mod+p exec sh -c 'cd ~/pix/screenshots; grim'
+	bindsym $mod+p exec sh -c 'cd ~/pix/screenshots; grim - > "$(date).png"'
 	bindsym $mod+Shift+p exec sh -c 'grim -g "$(slurp)" - | wl-copy -t image/png'
 
 	# Save clipboard
@@ -180,7 +181,10 @@ input "type:pointer" pointer_accel 0.7
 
 	# Show the next scratchpad window or hide the focused scratchpad window.
 	# If there are multiple scratchpad windows, this command cycles through them.
+	# bindsym $mod+minus scratchpad show
 	bindsym $mod+minus scratchpad show
+	bindsym $mod+n scratchpad show; scratchpad show
+
 #
 # Resizing containers:
 #
@@ -215,9 +219,9 @@ bar {
     }
 }
 
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.focused          $base05 $base0D $base00 $base0A $base0D
+client.focused_inactive $base01 $base01 $base05 $base02 $base02
+client.unfocused        $base01 $base00 $base05 $alpha  $alpha
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
